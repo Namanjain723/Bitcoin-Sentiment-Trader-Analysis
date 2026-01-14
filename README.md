@@ -1,4 +1,5 @@
 # Bitcoin Trader Performance vs Market Sentiment Analysis
+
 ### A Data Analyst Project
 This project analyzes how Bitcoin market sentiment impacts trader profitability by merging Fear and Greed Index data with historical trading records. It reveals how fear and greed influence risk behavior and trading performance using real market data.
 Bitcoin Market Sentiment vs Trader Performance
@@ -32,6 +33,7 @@ python -m pip install -r requirements.txt
 Place the following CSV files in the same directory as the Streamlit app (they are included in this repo):
 
 fear_greed_index.csv — daily Fear & Greed index values (timestamp, value, classification, date)
+
 historical_data.csv — trade-level data (Account, Coin, Execution Price, Size Tokens, Size USD, Side, Timestamp IST, Closed PnL, Fee, ...)
 
 ## Running tests / quick checks
