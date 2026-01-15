@@ -158,7 +158,7 @@ trader_sentiment_analysis.ipynb
 ## Contact / Author
 Naman Jain 
 
-Email: namancric18@gmail.com@gmail.com
+Email: namancric18@gmail.com 
 
 GitHub: https://github.com/Namanjain723
 
