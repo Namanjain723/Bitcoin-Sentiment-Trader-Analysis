@@ -1,164 +1,102 @@
-# Bitcoin Trader Performance vs Market Sentiment Analysis
+<div align="center">
 
-### A Data Analyst Project
-This project analyzes how Bitcoin market sentiment impacts trader profitability by merging Fear and Greed Index data with historical trading records. It reveals how fear and greed influence risk behavior and trading performance using real market data.
-Bitcoin Market Sentiment vs Trader Performance
+# ₿ Bitcoin Market Sentiment vs Trader Performance
 
-## Quick summary
-Language: Python 3.8+
-Main libs: Streamlit, Pandas, NumPy, Plotly, SciPy
-Data files (required at runtime): fear_greed_index.csv, historical_data.csv
+### Does fear & greed actually move traders' P&L? A data-analysis deep-dive.
 
-## Features
-Multi-page Streamlit dashboard with:
-Assignment details and instructions
-Summary dashboard (metrics, distributions, timeseries)
-Advanced analytics (statistical tests and correlations)
-Risk analysis (Sharpe, volatility, drawdown)
-Deep-dive trade-level views and filters
-Interactive Plotly visualizations
-Data export for filtered results
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat-square)
+![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?style=flat-square&logo=scipy&logoColor=white)
 
-## Quick start (Windows / PowerShell)
-Open PowerShell and change to the project directory:
-cd "c:/Users/amara/Downloads/CRYPTO-MARKET-ANALYSIS-main/CRYPTO-MARKET-ANALYSIS-main"
-(Optional but recommended) create and activate a virtual environment:
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-Install dependencies:
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+</div>
 
-## Data files
-Place the following CSV files in the same directory as the Streamlit app (they are included in this repo):
+---
 
-fear_greed_index.csv — daily Fear & Greed index values (timestamp, value, classification, date)
+## 📌 Overview
 
-historical_data.csv — trade-level data (Account, Coin, Execution Price, Size Tokens, Size USD, Side, Timestamp IST, Closed PnL, Fee, ...)
+This project investigates **how Bitcoin market sentiment (the Fear & Greed Index) influences
+trader profitability and risk behaviour.** It merges day-by-day sentiment with **real
+trade-level records from the Hyperliquid exchange**, then analyses profitability, risk and
+trading activity across **Fear, Neutral and Greed** regimes.
 
-## Running tests / quick checks
-There is a helper test_app.py that performs basic checks (syntax, presence of pages and components). Run it with:
-python test_app.py
+The goal: find out whether market psychology is a usable signal for **better entries, position
+sizing and risk management** in crypto trading.
 
-## Troubleshooting
-ModuleNotFoundError for libraries (e.g. plotly, scipy):
+---
 
-Ensure you installed requirements with python -m pip install -r requirements.txt.
-You can install a missing package directly: python -m pip install scipy
-CSV not found error:
+## 🗂️ Datasets
 
-Confirm fear_greed_index.csv and historical_data.csv exist in the working directory.
-The app reads them with pd.read_csv('fear_greed_index.csv') and pd.read_csv('historical_data.csv').
+**1. Bitcoin Fear & Greed Index** (`fear_greed_index.csv`) — included in this repo
+- **2,644 daily readings**, **Feb 2018 → May 2025**
+- Columns: `timestamp`, `value` (0–100), `classification`, `date`
+- Sentiment split: **~49% Fear days · ~36% Greed days**, average index **≈ 47/100**
 
-## Project Overview
+**2. Hyperliquid Trader Data** (`historical_data.csv`) — trade-level
+- Account, coin, execution price, size (tokens / USD), side, timestamp, **closed PnL**, fees
+- Reflects real trader behaviour in live crypto markets
 
-This project analyzes how Bitcoin market sentiment influences trader profitability by combining the Bitcoin Fear & Greed Index with historical trading data from Hyperliquid. The goal is to identify whether emotional market conditions such as Fear, Neutral, and Greed impact trading outcomes and risk behavior.
+---
 
-By merging sentiment data with real trading performance, this project provides actionable insights into how market psychology affects financial decisions in Web3 and crypto trading environments.
+## 📊 Visual highlights
 
-## Datasets Used
-1. Bitcoin Fear & Greed Index
+**Sentiment over seven years — the market swings hard between fear and greed:**
 
-This dataset measures overall market sentiment based on:
+![Fear & Greed timeline](assets/fear_greed_timeline.png)
 
-Volatility
+**How often the market sat in each mood:**
 
-Market momentum
+![Sentiment distribution](assets/sentiment_distribution.png)
 
-Social media sentiment
+---
 
-Market dominance
+## 🔬 Method
 
-Each day is classified into categories such as Fear, Neutral, or Greed.
+1. **Clean** both datasets — consistent dates, numeric coercion, de-duplication.
+2. **Integrate** — merge the Fear & Greed Index onto trader records by date.
+3. **EDA by regime** — compare average & total **closed PnL**, win-rate, trade size and
+   activity across Fear / Neutral / Greed.
+4. **Statistics** — correlation and group tests to check whether differences are meaningful.
 
-2. Hyperliquid Trader Data
+---
 
-This dataset contains:
+## 💡 Key insights
 
-Trade timestamps
+- **Trader performance varies materially across sentiment regimes** — the mood of the market
+  coincides with measurable shifts in profitability.
+- **Risk behaviour differs in Fear vs Greed** — position sizing and activity are not constant
+  across regimes.
+- **Sentiment is a usable context signal** — pairing the Fear & Greed Index with execution
+  discipline can inform smarter risk management.
 
-Executed trades
+*(Full figures, tables and statistical tests are in the notebook.)*
 
-Closed profit and loss (PnL)
+---
 
-Trading activity metrics
+## ▶️ Run it
 
-It reflects real trader behavior in live crypto markets.
-
-## Project Workflow
-
-Data Cleaning
-Both datasets were cleaned and formatted to ensure consistent date and numerical values.
-
-Data Integration
-The Fear & Greed Index was merged with trader data based on matching dates.
-
-Exploratory Data Analysis (EDA)
-Trader profitability and activity were analyzed across different sentiment regimes.
-
-Visualization
-Charts were created to compare average and total PnL across Fear, Neutral, and Greed periods.
-
-## Key Insights
-
-Trader performance varies significantly across different market sentiments.
-
-Fear periods show different risk and return behavior compared to Greed periods.
-
-Market sentiment can be a useful signal for improving trading and risk management strategies.
-
-## Repository Structure
-
-### bitcoin-sentiment-trader-analysis/
-
-├── data/
-
-│ ├── merged_data.csv
-│ └── sentiment_performance_summary.csv
-
-│
-├── notebooks/
-│ └── sentiment_trader_analysis.ipynb
-
-│
-├── src/
-│ └── data processing and analysis scripts
-
-│
-├── results/
-│ └── sentiment_vs_pnl.png
-
-│
-├── README.md
-└── requirements.txt
-
-## Technologies Used
-
-Python
-
-Pandas
-
-Matplotlib
-
-Jupyter Notebook
-
-## How to Run
-
-Clone the repository
-
-Install dependencies
-
+```bash
+git clone https://github.com/Namanjain723/Bitcoin-Sentiment-Trader-Analysis.git
+cd Bitcoin-Sentiment-Trader-Analysis
 pip install -r requirements.txt
+jupyter notebook trader_sentiment_analysis.ipynb
+```
 
+> `fear_greed_index.csv` ships with the repo. To reproduce the merge/PnL analysis end-to-end,
+> place the Hyperliquid `historical_data.csv` in the project folder (it is large and sourced
+> from the exchange, so it is not committed here).
 
-## Open the notebook
+---
 
-trader_sentiment_analysis.ipynb
+## 🧰 Tech stack
 
-## Contact / Author
-Naman Jain 
+**Python · Pandas · NumPy · SciPy · Matplotlib · Jupyter Notebook**
 
-Email: namancric18@gmail.com 
+---
 
-GitHub: https://github.com/Namanjain723
+## 👤 Author
 
+**Naman Jain** — Data Analyst & AI Developer
+🌐 [Portfolio](https://pixlforgestudio03.netlify.app/) · ✉️ namancric18@gmail.com · 🐙 [@Namanjain723](https://github.com/Namanjain723)
