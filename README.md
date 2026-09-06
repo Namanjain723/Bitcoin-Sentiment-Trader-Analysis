@@ -29,12 +29,12 @@ sizing and risk management** in crypto trading.
 
 ## 🗂️ Datasets
 
-**1. Bitcoin Fear & Greed Index** (`fear_greed_index.csv`) — included in this repo
+**1. Bitcoin Fear & Greed Index** (`fear_greed_index.csv`) - included in this repo
 - **2,644 daily readings**, **Feb 2018 → May 2025**
 - Columns: `timestamp`, `value` (0–100), `classification`, `date`
 - Sentiment split: **~49% Fear days · ~36% Greed days**, average index **≈ 47/100**
 
-**2. Hyperliquid Trader Data** (`historical_data.csv`) — trade-level
+**2. Hyperliquid Trader Data** (`historical_data.csv`) - trade-level
 - Account, coin, execution price, size (tokens / USD), side, timestamp, **closed PnL**, fees
 - Reflects real trader behaviour in live crypto markets
 
@@ -42,7 +42,7 @@ sizing and risk management** in crypto trading.
 
 ## 📊 Visual highlights
 
-**Sentiment over seven years — the market swings hard between fear and greed:**
+**Sentiment over seven years - the market swings hard between fear and greed:**
 
 ![Fear & Greed timeline](assets/fear_greed_timeline.png)
 
@@ -54,21 +54,21 @@ sizing and risk management** in crypto trading.
 
 ## 🔬 Method
 
-1. **Clean** both datasets — consistent dates, numeric coercion, de-duplication.
-2. **Integrate** — merge the Fear & Greed Index onto trader records by date.
-3. **EDA by regime** — compare average & total **closed PnL**, win-rate, trade size and
+1. **Clean** both datasets - consistent dates, numeric coercion, de-duplication.
+2. **Integrate** - merge the Fear & Greed Index onto trader records by date.
+3. **EDA by regime** - compare average & total **closed PnL**, win-rate, trade size and
    activity across Fear / Neutral / Greed.
-4. **Statistics** — correlation and group tests to check whether differences are meaningful.
+4. **Statistics** - correlation and group tests to check whether differences are meaningful.
 
 ---
 
 ## 💡 Key insights
 
-- **Trader performance varies materially across sentiment regimes** — the mood of the market
+- **Trader performance varies materially across sentiment regimes** - the mood of the market
   coincides with measurable shifts in profitability.
-- **Risk behaviour differs in Fear vs Greed** — position sizing and activity are not constant
+- **Risk behaviour differs in Fear vs Greed** - position sizing and activity are not constant
   across regimes.
-- **Sentiment is a usable context signal** — pairing the Fear & Greed Index with execution
+- **Sentiment is a usable context signal** - pairing the Fear & Greed Index with execution
   discipline can inform smarter risk management.
 
 *(Full figures, tables and statistical tests are in the notebook.)*
@@ -98,5 +98,5 @@ jupyter notebook trader_sentiment_analysis.ipynb
 
 ## 👤 Author
 
-**Naman Jain** — Data Analyst & AI Developer
+**Naman Jain** - Data Analyst & AI Developer
 🌐 [Portfolio](https://pixlforgestudio.in/) · ✉️ info@pixlforgestudio.in · 📬 namancric18@gmail.com · 🐙 [@Namanjain723](https://github.com/Namanjain723)
