@@ -18,7 +18,7 @@
 ## 📌 Overview
 
 This project investigates **how Bitcoin market sentiment (the Fear & Greed Index) influences
-trader profitability and risk behaviour.** It merges day-by-day sentiment with **real
+trader profitability and risk behavior.** It merges day-by-day sentiment with **real
 trade-level records from the Hyperliquid exchange**, then analyses profitability, risk and
 trading activity across **Fear, Neutral and Greed** regimes.
 
@@ -36,7 +36,7 @@ sizing and risk management** in crypto trading.
 
 **2. Hyperliquid Trader Data** (`historical_data.csv`) - trade-level
 - Account, coin, execution price, size (tokens / USD), side, timestamp, **closed PnL**, fees
-- Reflects real trader behaviour in live crypto markets
+- Reflects real trader behavior in live crypto markets
 
 ---
 
@@ -66,7 +66,7 @@ sizing and risk management** in crypto trading.
 
 - **Trader performance varies materially across sentiment regimes** - the mood of the market
   coincides with measurable shifts in profitability.
-- **Risk behaviour differs in Fear vs Greed** - position sizing and activity are not constant
+- **Risk behavior differs in Fear vs Greed** - position sizing and activity are not constant
   across regimes.
 - **Sentiment is a usable context signal** - pairing the Fear & Greed Index with execution
   discipline can inform smarter risk management.
